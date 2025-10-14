@@ -1,8 +1,11 @@
-from agents.image_classifier import ImageClassifier
+from pathlib import Path
 
-image_classifier = ImageClassifier()
+from agents.post_classifier import PostClassifier
 
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"
+post_classifier = PostClassifier()
 
-print(image_classifier.classify(image_url))
+image_url = "https://imgs.search.brave.com/PLuBwWdpysNwK25zTOjZmG653qYgv82nJSodypQ_fQY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzM0LzQ0LzY3/LzM2MF9GXzQzNDQ0/Njc3Nl8ya2lwU01w/UEVTczdrWkQzUFlz/bTFrTmJiUFE4amVp/Yy5qcGc"
+caption = (Path(__file__).resolve().parent / "agents" / "captions" / "post_insta.prompt").read_text(encoding="utf-8")
+
+print(post_classifier.classify(image_url, caption))
 
