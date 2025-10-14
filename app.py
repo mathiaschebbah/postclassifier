@@ -9,4 +9,4 @@ caption = (Path(__file__).resolve().parent / "agents" / "captions" / "post_insta
 
 post_classifier = PostClassifier(model=OpenAIModel(prompt))
 
-print(post_classifier.classify(image_url, caption))
+print(post_classifier.classify(image_url, image_url, caption))

@@ -14,7 +14,7 @@ class PostClassifier:
         self.model = model
         self.responses = []
 
-    def classify(self, image_url, caption: str):
+    def classify(self, image_url_1, image_url_2, caption: str):
         """
         Classifie un post à partir de l'URL d'une image et d'une légende (caption).
         Args:
@@ -25,5 +25,5 @@ class PostClassifier:
             list: Liste des réponses du modèle pour chaque appel.
         """
         for i in range(5):
-            self.responses.append(self.model.call(image_url, caption))
+            self.responses.append(self.model.call(image_url_1, image_url_2, caption))
         return self.responses

@@ -3,6 +3,7 @@ from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 from .model import Model
+from typing import Optional
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent.parent / ".env")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -14,7 +15,7 @@ class OpenAIModel(Model):
         self.openai = OpenAI(api_key=OPENAI_API_KEY)
         self.model = "gpt-4.1-mini"
 
-    def call(self, image_url, text: str) -> str: 
+    def call(self, image_url_1 : str, image_url_2 : str, text: str) -> str: 
         response = self.openai.responses.create(
             model=self.model,
             temperature=0.1,
@@ -24,9 +25,16 @@ class OpenAIModel(Model):
                     {"type": "input_text", "text": self.prompt + text},
                     {
                         "type": "input_image",
-                        "image_url": str(image_url),
+                        "image_url": str(image_url_1),
                         "detail": "high",
                     },
+                    
+                    {
+                        "type": "input_image",
+                        "image_url": str(image_url_2),
+                        "detail": "high",
+                    }
+                    ,
                 ],
             }],
         )
