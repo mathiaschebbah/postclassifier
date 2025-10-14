@@ -1,5 +1,5 @@
 from pathlib import Path
-from agents.models.OpenAI import OpenAIModel
+from agents.models.openai import OpenAIModel
 
 from agents.post_classifier import PostClassifier
 

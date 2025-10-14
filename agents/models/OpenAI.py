@@ -25,12 +25,12 @@ class OpenAIModel(Model):
                     {
                         "type": "input_image",
                         "image_url": str(image_url),
-                        "detail": "low",
+                        "detail": "high",
                     },
                 ],
             }],
         )
         return response.output_text
-        
+
     def get_model_prompt(self) -> str:
         return self.prompt

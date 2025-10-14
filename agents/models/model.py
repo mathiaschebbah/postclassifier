@@ -18,10 +18,10 @@ class Model(ABC):
     @abstractmethod
     def call(self, image_url: str, text: str) -> str:
         """
-        Méthode pour effectuer un appel au modèle avec une image et du texte.
+        Effectue un appel au modèle avec une image et du texte.
         
         Args:
-            image_url (Union[str, Any]): URL ou chemin vers l'image à analyser
+            image_url (str): URL ou chemin vers l'image à analyser
             text (str): Texte additionnel à envoyer avec l'image
             
         Returns:
