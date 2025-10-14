@@ -1,12 +1,11 @@
-from openai.resources.responses.responses import Responses
-from agents.models.open_ai_model import OpenAIModel
+from agents.models.model import Model
 
-class PostClassifier(OpenAIModel):
-    def __init__(self, prompt: str) -> None:
-        super().__init__(prompt)
+class PostClassifier:
+    def __init__(self, model: Model) -> None:
+        self.model = model
         self.responses = []
-        
-    def classify(self, image_url, caption: str) -> str:
-        for i in range(5):
-            self.responses.append(self.model_call(image_url, caption))
+
+    def classify(self, image_url, caption: str):
+        for _ in range(5):
+            self.responses.append(self.model.call(image_url, caption))
         return self.responses

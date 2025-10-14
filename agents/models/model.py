@@ -18,7 +18,7 @@ class Model(ABC):
         self.prompt = prompt
     
     @abstractmethod
-    def model_call(self, image_url: Union[str, Any], text: str) -> str:
+    def call(self, image_url: Union[str, Any], text: str) -> str:
         """
         Méthode abstraite pour effectuer un appel au modèle avec une image et du texte.
         

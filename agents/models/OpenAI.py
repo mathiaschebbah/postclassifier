@@ -14,7 +14,7 @@ class OpenAIModel(Model):
         self.openai = OpenAI(api_key=OPENAI_API_KEY)
         self.model = "gpt-4.1-mini"
 
-    def model_call(self, image_url, text: str) -> str: 
+    def call(self, image_url, text: str) -> str: 
 
         response = self.openai.responses.create(
             model=self.model,
