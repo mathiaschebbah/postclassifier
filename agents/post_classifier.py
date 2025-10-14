@@ -19,12 +19,13 @@ class PostClassifier():
         self.model = "gpt-4.1-mini"
         self.prompt = prompt
         self.reponses_acceptables = ["Oui, elle est triste.", "Non, elle n'est pas triste."]
+        self.iter = 5
 
     def classify(self, image_url, caption: str) -> str: 
         for i in range(self.iter):
-            self.tries += 1
             response = self.client.responses.create(
                 model=self.model,
+                temperature=0.1,
                 input=[{
                     "role": "user",
                     "content": [
@@ -42,4 +43,4 @@ class PostClassifier():
             else:
                 raise exception("La réponse du modèle est incorrecte.")
 
-
+        return "fin"
