@@ -15,7 +15,6 @@ class OpenAIModel(Model):
         self.model = "gpt-4.1-mini"
 
     def call(self, image_url, text: str) -> str: 
-
         response = self.openai.responses.create(
             model=self.model,
             temperature=0.1,
@@ -32,6 +31,6 @@ class OpenAIModel(Model):
             }],
         )
         return response.output_text
-
+        
     def get_model_prompt(self) -> str:
         return self.prompt
