@@ -2,10 +2,11 @@ from pathlib import Path
 
 from agents.post_classifier import PostClassifier
 
-post_classifier = PostClassifier()
-
-image_url = "https://imgs.search.brave.com/PLuBwWdpysNwK25zTOjZmG653qYgv82nJSodypQ_fQY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzM0LzQ0LzY3/LzM2MF9GXzQzNDQ0/Njc3Nl8ya2lwU01w/UEVTczdrWkQzUFlz/bTFrTmJiUFE4amVp/Yy5qcGc"
+prompt = (Path(__file__).resolve().parent / "agents" / "prompts" / "post_classifier.prompt").read_text(encoding="utf-8")
+image_url = "https://media.gettyimages.com/id/1470493731/fr/photo/paris-france-general-views-at-the-jacquemus-obsession-exhibition-at-galeries-lafayette-on.jpg?s=1024x1024&w=gi&k=20&c=jcXJy7UTkDS6js6xLKjWje2_JYJ2xiQGDvHCpFF6um8="
 caption = (Path(__file__).resolve().parent / "agents" / "captions" / "post_insta.prompt").read_text(encoding="utf-8")
 
-print(post_classifier.classify(image_url, caption))
+post_classifier = PostClassifier(prompt)
 
+
+print(post_classifier.classify(image_url, caption))

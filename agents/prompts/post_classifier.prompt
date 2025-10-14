@@ -1,11 +1,12 @@
-Que représente cette image ?
-Est-elle triste ?
-Je te donne la caption de cette image pour comprendre mieux ce qu'elle représente.
-
 * Ton boulot à la fin est de retourner une seule phrase, et rien d'autre *
 
-Après avoir réfléchi, tu dois obligatoirement répondre soit : 
-- "Oui, elle est triste."
-- "Non, elle n'est pas triste"
+Que représente cette image ?
 
+Après avoir réfléchi, tu dois obligatoirement répondre soit : 
+- "mode"
+- "voiture"
+- "cinéma"
+- "beauté"
+
+Je te donne la caption de cette image pour comprendre mieux ce qu'elle représente.
 Voici la caption : 
