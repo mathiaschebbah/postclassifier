@@ -24,6 +24,5 @@ class PostClassifier:
         Returns:
             list: Liste des réponses du modèle pour chaque appel.
         """
-        for i in range(5):
-            self.responses.append(self.model.call(image_url_1, image_url_2, caption))
-        return self.responses
+        self.responses.append(self.model.call(image_url_1, image_url_2, caption))
+        return str(self.responses[0])
