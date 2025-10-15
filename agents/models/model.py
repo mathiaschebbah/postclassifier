@@ -21,7 +21,8 @@ class Model(ABC):
         Effectue un appel au modèle avec une image et du texte.
         
         Args:
-            image_url (str): URL ou chemin vers l'image à analyser
+            image_url_1 (str): URL ou chemin vers l'image à analyser
+            image_url_2 (str): URL ou chemin vers l'image à analyser
             text (str): Texte additionnel à envoyer avec l'image
             
         Returns:
