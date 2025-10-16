@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from openai import OpenAI
+from openai import OpenAI, responses
 from dotenv import load_dotenv
 from .model import Model
 from typing import Optional
@@ -13,12 +13,14 @@ class OpenAIModel(Model):
     def __init__(self, prompt: str):
         super().__init__(prompt)
         self.openai = OpenAI(api_key=OPENAI_API_KEY)
-        self.model = "gpt-4.1-mini"
+        self.model = "gpt-5"
 
-    def call(self, image_url_1 : str, image_url_2 : str, text: str) -> str: 
+    def call(self, image_url_1 : str, text: str) -> str: 
         response = self.openai.responses.create(
             model=self.model,
-            temperature=0.1,
+            reasoning={
+                    "effort": "high",
+                },
             input=[{
                 "role": "user",
                 "content": [
@@ -28,13 +30,7 @@ class OpenAIModel(Model):
                         "image_url": str(image_url_1),
                         "detail": "high",
                     },
-                    
-                    {
-                        "type": "input_image",
-                        "image_url": str(image_url_2),
-                        "detail": "high",
-                    }
-                    ,
+                
                 ],
             }],
         )

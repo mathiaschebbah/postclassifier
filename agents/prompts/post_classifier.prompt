@@ -1,4 +1,4 @@
-* Ton boulot à la fin est de retourner une seule phrase, et rien d'autre *
+* Ton boulot à la fin est de retourner une seul mot, et rien d'autre *
 
 Que représente cette image ?
 
@@ -7,6 +7,7 @@ Après avoir réfléchi, tu dois obligatoirement répondre soit :
 - "voiture"
 - "cinéma"
 - "beauté"
+- "football"
 
 Je te donne la caption de cette image pour comprendre mieux ce qu'elle représente.
 Voici la caption : 
